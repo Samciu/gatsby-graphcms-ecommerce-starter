@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 import LocaleLink from './LocaleLink';
 
 function Product({ id, name, printfulProduct }) {
-  const [{ formattedPrice }] = printfulProduct.variants;
+  const [{ formattedPrice }] = printfulProduct?.variants || [{}];
 
   return (
     <article key={id} className="p-6 w-full md:w-1/2 lg:w-1/3">
@@ -14,7 +14,7 @@ function Product({ id, name, printfulProduct }) {
       >
         <div className="bg-gainsboro rounded-lg cursor-pointer w-full overflow-hidden relative px-3 py-6 md:px-6">
           <Img
-            fluid={printfulProduct.productImage.childImageSharp.fluid}
+            fluid={printfulProduct?.productImage?.childImageSharp?.fluid}
             alt={name}
             title={name}
           />
