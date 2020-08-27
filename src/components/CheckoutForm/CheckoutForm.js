@@ -83,7 +83,7 @@ function CheckoutForm() {
 
     emptyCart();
 
-    navigate('success', { state: { orderId } });
+    navigate('/success', { state: { orderId } });
   };
 
   const calculateOrderCosts = async values => {
