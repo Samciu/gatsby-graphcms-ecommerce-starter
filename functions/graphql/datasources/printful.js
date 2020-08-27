@@ -7,9 +7,11 @@ class PrintfulAPI extends RESTDataSource {
   }
 
   willSendRequest(request) {
+    // console.log(Buffer.from(process.env.PRINTFUL_API_KEY).toString('base64'))
+
     request.headers.set(
       'Authorization',
-      `Basic ${Buffer.from(process.env.PRINTFUL_API_KEY).toString('base64')}`
+      `Basic dmk2eGN1cWUtNTgxdi1mMmV0OmtiejgteHB2ZnhpZDVobW5q`
     );
   }
 
@@ -34,7 +36,7 @@ class PrintfulAPI extends RESTDataSource {
         recipient,
       });
 
-      return data;
+      return undefined;
     } catch (err) {
       console.error(err);
     }
