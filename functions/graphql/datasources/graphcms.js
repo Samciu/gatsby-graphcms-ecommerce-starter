@@ -69,11 +69,7 @@ const submitReviewMutation = gql`
 class GraphCMSAPI extends GraphQLDataSource {
   constructor() {
     super();
-
-    console.log(process);
-    console.log(process.env);
-    console.log(process.env.GRAPHCMS_ENDPOINT);
-
+    console.log('GRAPHCMS_ENDPOINT:', process.env.GRAPHCMS_ENDPOINT);
     this.baseURL = process.env.GRAPHCMS_ENDPOINT;
   }
 
@@ -82,6 +78,7 @@ class GraphCMSAPI extends GraphQLDataSource {
       request.headers = {};
     }
 
+    console.log(`GRAPHCMS_OPEN_TOKEN ${process.env.GRAPHCMS_OPEN_TOKEN}`);
     request.headers.authorization = `Bearer ${process.env.GRAPHCMS_OPEN_TOKEN}`;
   }
 
