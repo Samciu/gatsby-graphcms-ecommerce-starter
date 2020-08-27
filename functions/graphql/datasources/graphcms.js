@@ -69,6 +69,11 @@ const submitReviewMutation = gql`
 class GraphCMSAPI extends GraphQLDataSource {
   constructor() {
     super();
+
+    console.log(process);
+    console.log(process.env);
+    console.log(process.env.GRAPHCMS_ENDPOINT);
+
     this.baseURL = process.env.GRAPHCMS_ENDPOINT;
   }
 
