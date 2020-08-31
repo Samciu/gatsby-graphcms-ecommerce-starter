@@ -11,6 +11,7 @@ exports.handler = async event => {
     },
   } = JSON.parse(event.body);
 
+  console.log(event.body.data);
   console.log(101, id, to, fulfilled, name);
 
   return {
