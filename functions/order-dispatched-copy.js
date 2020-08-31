@@ -11,40 +11,46 @@ exports.handler = async event => {
     },
   } = JSON.parse(event.body);
 
-  console.log(0000, event);
-  console.log(1111, event.body);
+  console.log(101, id, to, fulfilled, name);
 
-  if (!fulfilled)
-    return {
-      statusCode: 422,
-      body: JSON.stringify({
-        message: 'No action required.',
-      }),
-    };
+  return {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: 'Email(s) sent successfully.',
+    }),
+  };
 
-  try {
-    // await postmark.sendEmailWithTemplate({
-    //   from: process.env.POSTMARK_STORE_OWNER_EMAIL,
-    //   to,
-    //   TemplateId: process.env.POSTMARK_ORDER_DISPATCHED_TEMPLATE_ID,
-    //   TemplateModel: {
-    //     id,
-    //     name,
-    //   },
-    // });
+  // if (!fulfilled)
+  //   return {
+  //     statusCode: 422,
+  //     body: JSON.stringify({
+  //       message: 'No action required.',
+  //     }),
+  //   };
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({
-        message: 'Email(s) sent successfully.',
-      }),
-    };
-  } catch (err) {
-    console.log(err);
+  // try {
+  //   // await postmark.sendEmailWithTemplate({
+  //   //   from: process.env.POSTMARK_STORE_OWNER_EMAIL,
+  //   //   to,
+  //   //   TemplateId: process.env.POSTMARK_ORDER_DISPATCHED_TEMPLATE_ID,
+  //   //   TemplateModel: {
+  //   //     id,
+  //   //     name,
+  //   //   },
+  //   // });
 
-    return {
-      statusCode: 500,
-      body: JSON.stringify(err),
-    };
-  }
+  //   return {
+  //     statusCode: 200,
+  //     body: JSON.stringify({
+  //       message: 'Email(s) sent successfully.',
+  //     }),
+  //   };
+  // } catch (err) {
+  //   console.log(err);
+
+  //   return {
+  //     statusCode: 500,
+  //     body: JSON.stringify(err),
+  //   };
+  // }
 };
