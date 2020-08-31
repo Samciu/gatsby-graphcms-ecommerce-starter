@@ -5,14 +5,10 @@
 // const postmark = new PostmarkClient(process.env.POSTMARK_API_KEY);
 
 exports.handler = async event => {
-  const {
-    data: {
-      PUBLISHED: { id, email: to, fulfilled, name },
-    },
-  } = JSON.parse(event.body);
+  const { data } = JSON.parse(event.body);
 
-  console.log(event.body);
-  console.log(10111111, id, to, fulfilled, name);
+  console.log(data);
+  // console.log(10111111, id, to, fulfilled, name);
 
   return {
     statusCode: 200,
