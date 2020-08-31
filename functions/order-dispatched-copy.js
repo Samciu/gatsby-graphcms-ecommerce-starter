@@ -11,6 +11,9 @@ exports.handler = async event => {
     },
   } = JSON.parse(event.body);
 
+  console.log(0000, event);
+  console.log(1111, event.body);
+
   if (!fulfilled)
     return {
       statusCode: 422,
@@ -18,8 +21,6 @@ exports.handler = async event => {
         message: 'No action required.',
       }),
     };
-
-  console.log(event.body);
 
   try {
     // await postmark.sendEmailWithTemplate({
